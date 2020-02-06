@@ -16,6 +16,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker'
+gem 'acts_as_favoritor'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
