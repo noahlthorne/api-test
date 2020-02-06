@@ -1,13 +1,14 @@
 <div class="container">
 
   <h1>Recent Tweets</h1>
+
   <div class="posts">
-    <% @posts.each do |post| %>
-      <#%= render template 'post_card' %>
-      <p> <%= post.content %></p>
-      <p><%= post.likes %></p>
-      <p><%= post.retweets %></p>
+    <% @users.each do |user| %>
+      <%= user.random_posts.each do |post| %>
+        <%= render 'post_card', post: post %>
+      <% end %>
     <% end %>
   </div>
+
 </div>
 
