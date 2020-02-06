@@ -1,0 +1,13 @@
+<div class="container">
+
+  <h1>Recent Tweets</h1>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <#%= render template 'post_card' %>
+      <p> <%= post.content %></p>
+      <p><%= post.likes %></p>
+      <p><%= post.retweets %></p>
+    <% end %>
+  </div>
+</div>
+
