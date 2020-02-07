@@ -6,7 +6,7 @@ class User < ApplicationRecord
   end
 
   def random_posts
-    posts.sample
+    posts.take(rand(1..5))
   end
 
   acts_as_favoritable
