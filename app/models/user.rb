@@ -5,9 +5,9 @@ class User < ApplicationRecord
     first_name + " " + last_name
   end
 
-  def random_posts
-    posts.take(rand(1..5))
-  end
+  # def random_posts
+  #   posts.take(rand(1..5))
+  # end
 
   acts_as_favoritable
   has_many :posts, dependent: :destroy

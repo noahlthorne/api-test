@@ -8,11 +8,9 @@
 </div>
 
   <div class="posts">
-    <% @users.each do |user| %>
-      <% user.random_posts.each do |post| %>
+      <% @posts.each do |post| %>
         <%= render 'post_card', post: post %>
       <% end %>
-    <% end %>
   </div>
 
 </div>

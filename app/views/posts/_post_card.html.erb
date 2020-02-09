@@ -17,7 +17,9 @@
       </div>
     </div>
   </div>
-
+  <div class="post-time">
+    <%= post.created_at.strftime("%b %e, %l:%M %p") %>
+  </div>
   <div class="content">
     <p> <%= post.content %></p>
   </div>

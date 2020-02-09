@@ -20,12 +20,14 @@ end
 
 User.all.each do |user|
   rand(1..50).times do
-    Post.create!(
+    post = Post.create!(
       user: user,
       content: Faker::Food.description,
       likes: rand(1..999),
       retweets: rand(1..999),
     )
+    post.created_at = (rand*10).days.ago
+    post.save!
   end
   puts "created #{user.posts.count} posts for #{user.first_name} #{user.last_name}"
 end

@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy, :edit, :update]
 
   def index
-    @posts = policy_scope(Post)
+    @posts = policy_scope(Post).order(created_at: :desc).limit(50)
     @users = User.all
-    @post = Post.new
+    # @post = Post.new
     # authorize @post
   end
 
