@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_post, only: [:show, :destroy]
+  before_action :set_post, only: [:show, :destroy, :edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = policy_scope(Post)
     @users = User.all
+    @post = Post.new
+    # authorize @post
   end
 
   def show
@@ -12,13 +14,27 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    authorize @post
     if @post.save
-      redirect_to post_path(@post), notice: 'Your post was successfully published'
+      redirect_to posts_path, notice: 'Your post was successfully published'
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to posts_path, notice: 'Your post was successfully updated'
     else
       render :new
     end
@@ -33,6 +49,7 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    authorize @post
   end
 
   def post_params
