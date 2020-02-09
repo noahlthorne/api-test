@@ -6,12 +6,12 @@
     </div>
     <div class="edit-delete">
       <div class="edit-button">
-        <% if post.user == current_user %>
+        <% if policy(post).edit? %>
           <%= link_to "edit post", edit_post_path(post)%>
         <% end %>
       </div>
       <div class="delete-button">
-        <% if post.user == current_user %>
+        <% if policy(post).destroy? %>
           <%= link_to "delete post", post_path(post), method: :delete  %>
         <% end %>
       </div>
