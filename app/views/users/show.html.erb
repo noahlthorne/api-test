@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="heading">
+    <h1><%= @user.full_name %></h1>
+    <h3><%= @user.email %></h3>
+  </div>
+
+  <div class="posts">
+      <% @user.posts.each do |post| %>
+        <%= render 'posts/post_card', post: post %>
+      <% end %>
+  </div>
+
+</div>
+

@@ -18,6 +18,7 @@ gem 'devise'
 gem 'faker'
 gem 'acts_as_favoritor'
 gem 'pundit'
+gem 'simple_token_authentication'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
