@@ -1,22 +1,26 @@
 <div class="post-card">
 
   <div class="post-header">
+
     <div class="username">
       <%= link_to post.user.full_name, user_path(post.user) %> </p>
     </div>
+
     <div class="edit-delete">
-      <div class="edit-button">
-        <% if policy(post).edit? %>
-          <%= link_to "edit post", edit_post_path(post)%>
-        <% end %>
-      </div>
-      <div class="delete-button">
-        <% if policy(post).destroy? %>
+      <% if policy(post).edit? %>
+        <div class="btn draw-border">
+            <%= link_to "edit post", edit_post_path(post)%>
+        </div>
+      <% end %>
+      <% if policy(post).destroy? %>
+        <div class="btn draw-border">
           <%= link_to "delete post", post_path(post), method: :delete  %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
+
   </div>
+
   <div class="post-time">
     <%= post.created_at.strftime("%b %e, %l:%M %p") %>
   </div>
