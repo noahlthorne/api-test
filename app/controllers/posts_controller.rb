@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = policy_scope(Post).order(created_at: :desc).limit(50)
-    @users = User.all
+    @users = policy_scope(User)
     # @post = Post.new
     # authorize @post
   end
