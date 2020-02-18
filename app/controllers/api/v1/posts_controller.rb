@@ -22,7 +22,7 @@ class Api::V1::PostsController < Api::V1::BaseController
     @post.user = current_user
     authorize @post
     if @post.save
-      render :show
+      render :show, status: :created
     else
       render_error
     end
@@ -30,6 +30,7 @@ class Api::V1::PostsController < Api::V1::BaseController
 
   def destroy
     @post.destroy
+    head :no_content
   end
 
   private
