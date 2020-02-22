@@ -1,0 +1,8 @@
+  <div class="create-card">
+      <h3 class="card-title text-center">Add a new Post</h3>
+      <%= simple_form_for(@post, remote: true) do |f| %>
+        <%= f.input :content %>
+        <%= f.button :submit %>
+      <% end %>
+  </div>
+

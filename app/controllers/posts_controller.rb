@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post).order(created_at: :desc).limit(50)
     @users = policy_scope(User)
+    @post = Post.new
     # @post = Post.new
     # authorize @post
   end
@@ -22,7 +23,10 @@ class PostsController < ApplicationController
     @post.user = current_user
     authorize @post
     if @post.save
-      redirect_to posts_path, notice: 'Your post was successfully published'
+      respond_to do |format|
+        format.js { flash[:notice] = 'Your post was successfully published' }
+        format.html { redirect_to posts_path }
+      end
     else
       render :new
     end
