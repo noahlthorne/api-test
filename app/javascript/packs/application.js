@@ -1,6 +1,6 @@
 import "bootstrap";
-import { postListener } from "./components/new_post";
+// import { postListener } from "./components/new_post";
 
 
-postListener();
+// postListener();
 

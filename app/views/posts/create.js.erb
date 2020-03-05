@@ -1,0 +1,17 @@
+var postForm = document.querySelector("#new_post");
+var postContent = document.querySelector("#post_content");
+var posts = document.querySelector(".posts");
+
+var postListener = () => {
+  var html = "<%= j render "post_card", post: @post %>";
+    posts.insertAdjacentHTML("afterbegin", html);
+  postForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    // console.log(postContent.value);
+
+  // value = post.value
+  });
+}
+
+
+postListener();

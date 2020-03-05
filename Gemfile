@@ -4,7 +4,7 @@ ruby '2.6.3'
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
-gem 'puma'
+gem 'puma', '~> 4.3.3'
 gem 'rails', '5.2.4.1'
 gem 'redis'
 
@@ -19,7 +19,6 @@ gem 'faker'
 gem 'acts_as_favoritor'
 gem 'pundit'
 gem 'simple_token_authentication', '1.15.0'
-gem 'simple_form'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
