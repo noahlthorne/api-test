@@ -8,4 +8,6 @@ class Types::UserType < Types::BaseObject
   field :photo, String, null: true
   field :follower_count, Int, null: true
   field :following_count, Int, null: true
+
+  field :coordinates, Types::CoordinatesType, null: false
 end

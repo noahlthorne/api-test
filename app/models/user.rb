@@ -8,6 +8,10 @@ class User < ApplicationRecord
     first_name + " " + last_name
   end
 
+  def coordinates
+    [rand(max 90), rand(max 90)]
+  end
+
   acts_as_favoritable
   has_many :posts, dependent: :destroy
   devise :database_authenticatable, :registerable,
