@@ -12,6 +12,10 @@ class User < ApplicationRecord
     [rand(max 90), rand(max 90)]
   end
 
+  def age
+    rand(1..100)
+  end
+
   acts_as_favoritable
   has_many :posts, dependent: :destroy
   devise :database_authenticatable, :registerable,

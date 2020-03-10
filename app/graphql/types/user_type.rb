@@ -10,4 +10,5 @@ class Types::UserType < Types::BaseObject
   field :following_count, Int, null: true
 
   field :coordinates, Types::CoordinatesType, null: false
+  field :age, Int, null: false
 end
